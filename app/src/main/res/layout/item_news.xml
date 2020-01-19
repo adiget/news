@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ags.annada.newsapp.viewmodel.NewsViewModel" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/newsImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/colorPrimary"
+                android:scaleType="fitXY"
+                app:imageUrl="@{viewModel.getcontentSourceLogo()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:id="@+id/tv_news_title"
+                android:textSize="18sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@{viewModel.title}"
+                tools:text="Amazon to ramp up counterfeit reporting to law enforcement"
+                app:layout_constraintStart_toEndOf="@+id/newsImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/newsImageView"
+                app:layout_constraintBottom_toBottomOf="@+id/newsImageView"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
